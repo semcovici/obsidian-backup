@@ -1,0 +1,1 @@
+O Dataproc é um serviço totalmente gerenciado e altamente escalonável para executar Apache Hadoop, Apache Spark, Apache Flink, Presto e mais de 30 ferramentas e estruturas de código aberto. Use o Dataproc para modernização de data lake, ETL e ciência de dados segura, em escala, integrado ao Google Cloud, por uma fração do custo.

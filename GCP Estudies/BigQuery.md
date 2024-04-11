@@ -1,0 +1,1 @@
+Cloud data warehouse, serveless e escalável
