@@ -1,0 +1,1 @@
+Ferramenta CI/CD do[[Google Cloud Platform (GCP)]]

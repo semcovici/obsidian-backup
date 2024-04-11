@@ -1,4 +1,4 @@
-Um serviço oferecido pelo  [[GCP Estudies/GCP Google Cloud Platform]] como um dos [[GCP Estudies/GCP Storage Services]]
+Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP Estudies/GCP Storage Services]]
 
 
 * serviço de file storage  para aplicações 

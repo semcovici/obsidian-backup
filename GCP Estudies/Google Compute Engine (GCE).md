@@ -1,4 +1,4 @@
-Um serviço oferecido pelo  [[GCP Estudies/GCP Google Cloud Platform]] como um dos [[GCP Estudies/GCP Compute Services]]
+Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP Estudies/GCP Compute Services]]
 
 Serviço que possibilita criar VMs Linux e Windows para rodar na infraestrutura global da Google.
 
