@@ -9,7 +9,7 @@ Podemos dividir os serviços oferecido no GCP nos blocos abaixo:
 OBS: os serviços abaixo são os mais "fundacionais", que geram os acima
 
 Compute: [[GCP Compute Services]]
-Storage & Database Services: [[GCP Storage & Database Services]]
+Storage & Database Services: [[GCP Storage Services]]
 Network: [[GCP Network Services]]
 Security: [[GCP Security & Identity Services]]
 AI & Machine Learning: [[GCP AI & Machine Learning Services]]
