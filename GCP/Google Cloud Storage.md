@@ -1,4 +1,4 @@
-Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP Estudies/GCP Storage Services]]
+Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP Storage Services]]
 
 * Um object storage para uma variedade de aplicações
 * Aplicações conseguem armazenar e recuperar objetos por uma API

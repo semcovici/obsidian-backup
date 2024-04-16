@@ -1,4 +1,4 @@
-Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP Estudies/GCP Compute Services]]
+Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP Compute Services]]
 
 * Compute service do Google (PaaS)
 * Deploy de aplicações web que escalam (aumentam ou diminuem o tamanho de acordo com a demanda)

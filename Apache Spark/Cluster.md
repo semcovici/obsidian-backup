@@ -1,0 +1,1 @@
+Um cluster é um grupo de computadores conectados que disponibiliza os recursos de várias máquinas como se fossem apenas um computador. 

@@ -2,6 +2,6 @@ Serviço para ingerir dados em escala
 
 Baseado no padrão publishing/subscription
 
-![[GCP Estudies/images/Pasted image 20240411133140.png]]
+![[images/Pasted image 20240411133140.png]]
 
 *As mensagem possuem criptografia ponta-a-ponta

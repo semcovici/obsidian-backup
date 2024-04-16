@@ -8,13 +8,13 @@ Podemos dividir os serviços oferecido no GCP nos blocos abaixo:
 
 OBS: os serviços abaixo são os mais "fundacionais", que geram os acima
 
-Compute: [[GCP Estudies/GCP Compute Services]]
-Storage & Database Services: [[GCP Estudies/GCP Storage Services]]
-Network: [[GCP Estudies/GCP Network Services]]
-Security: [[GCP Estudies/GCP Security & Identity Services]]
-AI & Machine Learning: [[GCP Estudies/GCP AI & Machine Learning Services]]
-DevOps Tools: [[GCP Estudies/GCP DevOps Tools]]
-Management Tools: [[GCP Estudies/GCP Management Tools]]
+Compute: [[GCP Compute Services]]
+Storage & Database Services: [[GCP Storage Services]]
+Network: [[GCP Network Services]]
+Security: [[GCP Security & Identity Services]]
+AI & Machine Learning: [[GCP AI & Machine Learning Services]]
+DevOps Tools: [[GCP DevOps Tools]]
+Management Tools: [[GCP Management Tools]]
 
 ### Como os recursos são organizados?
 
