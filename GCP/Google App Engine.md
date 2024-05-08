@@ -25,5 +25,5 @@ mais fácil e rápido de fazer o deploy e escalar a aplicação, mas possui limi
 * Makes use of [[Google Compute Engine (GCE)]] VMs
 * Support ANY runtime
 * CANNOT scale down to Zero instances
-* **
+
 roda containers, então dá pra rodar praticamente qualquer coisa. Porém, demora mais para realizar o deploy e, geralmente, é mais caro.
