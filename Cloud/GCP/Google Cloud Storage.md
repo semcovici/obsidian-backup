@@ -9,6 +9,6 @@ Um serviço oferecido pelo  [[Google Cloud Platform (GCP)]] como um dos [[GCP St
 
 ### Storage Classes 
 
-![[images/storage_classes.png]]
+![[Files/images/storage_classes.png]]
 
 Quanto mais a direita na imagem, mais lento para recuperar os dados, mas é mais barato.

@@ -2,6 +2,6 @@ Serviço para a criação de pipelines de machine learning através de ferrament
 
 Construido em cima do Kubeflow, um projeto open source de machine learning basedo em [[../../Kubernetes|Kubernetes]]
 
-![[images/Pasted image 20240411142459.png]]
+![[Files/images/Pasted image 20240411142459.png]]
 
 

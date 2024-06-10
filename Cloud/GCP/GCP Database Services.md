@@ -2,4 +2,4 @@
 
 ### Use Cases
 
-![[images/Pasted image 20240411115441.png]]
+![[Files/images/Pasted image 20240411115441.png]]

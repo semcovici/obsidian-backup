@@ -1,9 +1,9 @@
 
-![[images/Pasted image 20240506113324.png]]
+![[GCP/Files/images/Pasted image 20240506113324.png]]
 
 
 
-![[images/Pasted image 20240510145109.png]]
+![[GCP/Files/images/Pasted image 20240510145109.png]]
 [[IAAS (Infrastructure as a Service)]]
 
 [[PaaS (Platform as a Service)]]

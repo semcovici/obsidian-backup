@@ -2,6 +2,6 @@ Serviço para ingerir dados em escala
 
 Baseado no padrão publishing/subscription
 
-![[images/Pasted image 20240411133140.png]]
+![[Files/images/Pasted image 20240411133140.png]]
 
 *As mensagem possuem criptografia ponta-a-ponta

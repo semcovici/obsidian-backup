@@ -5,7 +5,7 @@ Distributes traffic to multiple [[Google Compute Engine (GCE)]] VMs in one or mo
 
 
 
-![[images/Pasted image 20240411094602.png]]
+![[Files/images/Pasted image 20240411094602.png]]
 
 
 ### Managed service 
