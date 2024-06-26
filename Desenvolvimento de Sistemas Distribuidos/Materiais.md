@@ -15,4 +15,5 @@ Consistência e replicação:
 
 modelos de consistência centrados nos dados: https://www.youtube.com/watch?v=xal3WOz3b2k&t=1314s
 
+modelos de consistência centrados nos clientes: https://www.youtube.com/watch?v=n1X_BY5YYyY
 
