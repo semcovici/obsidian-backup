@@ -1,6 +1,7 @@
 
 
-Playlist UNIVESP: https://www.youtube.com/watch?v=e4zmQQU3ZqE&list=PLxI8Can9yAHdAU8zIvJTKcbhgRyzwjII2
+Playlist UNIVESP: [Sistemas Distribuídos - Apresentação da disciplina (youtube.com)](https://www.youtube.com/playlist?list=PLxI8Can9yAHdAU8zIvJTKcbhgRyzwjII2)
+
 
 Algoritmo de paxos e consenso: https://www.youtube.com/watch?v=DIcKdUkY_1s
 
