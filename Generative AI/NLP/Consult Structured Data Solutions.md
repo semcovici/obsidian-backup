@@ -23,6 +23,14 @@ Uma solução bastante robusta de Text2SQL [GoogleCloudPlatform/applied-ai-engin
 
 Utilizando fuction calling ([Function calling  |  Generative AI on Vertex AI  |  Google Cloud](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling")). Nessa a gente criaria querys que os usuários fariam e a llm só chamaria uma função que faz aquela query no bq e depois retornaria o resultado pro usuário. Essa solução é boa caso a gente perceba que existem querys parecidas que os usuários fazem, pq a gente generaliza aquela query em uma função e a llm só preenche os parâmetros. Dessa forma, evita ao máximo alucinação.
 
+
+
+Solução criando function que só executa a query: [Building an AI-powered BigQuery Data Exploration App using Function Calling in Gemini (googlecloudcommunity.com)](https://www.googlecloudcommunity.com/gc/Community-Blogs/Building-an-AI-powered-BigQuery-Data-Exploration-App-using/ba-p/716757)
+
+
+
+
+
 ## Utilizar vector store
 
 utilizar o esquema parecido com e-commerce de criar um json (objeto) que represente cada entidade, no nosso caso seriam os candidatos ou partidos por exemplo, e fazer a busca em cima dos json no vertex search. Essa solução me pareceu um pouco ruim e com altas tendencias de alucinação, inclusive o afonso foi mostrar para a gente dois exemplos e nos dois as respostas foram um pouco imprecisas kkk
