@@ -1,1 +1,1 @@
-![[aula01.pdf]]
+![[remote-repo/Facul/OAC II/files/aula01.pdf]]
