@@ -1,4 +1,4 @@
-
+![[Lista1_2024.pdf]]
 ## Questão 1
 
 ![[Pasted image 20240930195539.png]]
@@ -141,6 +141,17 @@ end_i:
 ```
 
 
+
+## Questão 4
+
+![[../../../Pasted image 20241004143212.png]]![[../../../Pasted image 20241004143331.png]]
+
+
+
+
+## Questão 5
+## Questão 6
+## Questão 7
 ##  Questão 8
 ![[Pasted image 20241004022009.png]]
 
@@ -170,4 +181,3 @@ Essa limitação impacta a eficiência do sistema e tem levado ao desenvolviment
 
 
 
-![[Lista1_2024.pdf]]
