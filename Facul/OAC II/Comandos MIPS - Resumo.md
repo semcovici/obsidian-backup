@@ -1,10 +1,21 @@
+
+
+
+
 ## Explicação Rápida
 
 ![[Pasted image 20241003023427.png]]
-
-
+![[Pasted image 20241004204336.png]]
 
 ## Explicação Detalhada
+
+Falta 
+b
+o que o syscall faz para cada inteiro
+sll
+bltz
+blgz
+
 
 ### 1. `addi` (Add Immediate)
 
