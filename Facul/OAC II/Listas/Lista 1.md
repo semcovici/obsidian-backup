@@ -1,6 +1,5 @@
 ![[Lista1_2024.pdf]]
 ## Questão 1
-
 ![[Pasted image 20240930195539.png]]
 ```python fold title:analysis_q1.asm
 addi $t1, $0, $0 # adiciona 0 + 0 e armazena em armazena em $t1, ou seja, atribui 0 a $t1

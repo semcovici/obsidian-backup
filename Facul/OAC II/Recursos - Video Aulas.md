@@ -19,3 +19,25 @@ Aula 7 e 8:
 - https://drive.google.com/file/d/1nUUIrL5wSCDmFsKaVYikJ-jvZrauuBeT/view?usp=sharing
 Aula 9:
 - https://drive.google.com/file/d/1Md18lv5DeN7x4exlWwqR3mXce7GXDg-m/view?usp=sharing
+
+
+
+
+slides norton:
+https://www.linkedin.com/pulse/ach2055-arquitetura-de-computadores-norton-roman/
+
+edisciplinas 2023 - clods:
+https://edisciplinas.usp.br/course/view.php?id=112778
+
+edisciplinas norton 2019:
+https://edisciplinas.usp.br/course/view.php?id=70499
+
+
+Vídeo bom e simples sobre a construção geral de um datapath monociclo: https://www.youtube.com/watch?v=tpYvbEJz_Eo
+
+
+Alguns videos legais 
+https://www.youtube.com/playlist?list=PLBw9d_OueVJQV_O4qEvC2e5TQ5RZeL9BD
+
+
+hexadecimal to decimal:https://www.youtube.com/watch?v=lTjFFEtmZyA

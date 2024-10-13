@@ -1,4 +1,4 @@
-![[Lista2.pdf]]
+[[Lista2.pdf]]
 
 
 ## Questão 1
