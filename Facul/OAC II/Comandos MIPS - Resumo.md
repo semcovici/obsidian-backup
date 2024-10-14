@@ -8,15 +8,6 @@
 ![[Pasted image 20241004204336.png]]
 
 ## Explicação Detalhada
-
-Falta 
-b
-o que o syscall faz para cada inteiro
-sll
-bltz
-blgz
-
-
 ### 1. `addi` (Add Immediate)
 
 Adiciona um valor imediato (constante) a um registrador e armazena o resultado em um registrador destino.
@@ -454,3 +445,215 @@ return;  // Em contexto de função
 ```
 
 ---
+
+### 19. `b` (Branch)
+
+Desvia incondicionalmente para uma etiqueta.
+
+**Sintaxe:**
+
+```assembly
+b label
+```
+
+**Exemplo:**
+
+```assembly
+b end_loop  # Vai para 'end_loop'
+```
+
+**Em C:**
+
+```c
+goto end_loop;
+```
+
+---
+
+### 20. `syscall`
+
+Chama um serviço do sistema (sistema operacional). Dependendo do valor em `$v0`, diferentes funções são chamadas. Aqui estão alguns valores comuns:
+
+- **1**: Imprime um inteiro (valor em `$a0`)
+- **4**: Imprime uma string (endereço da string em `$a0`)
+- **5**: Lê um inteiro (armazena o valor lido em `$v0`)
+- **8**: Lê uma string (endereço e tamanho da string em `$a0` e `$a1`)
+- **10**: Finaliza o programa (exit)
+
+**Exemplo para imprimir um inteiro:**
+
+```assembly
+li $v0, 1      # Código de serviço para imprimir inteiro
+li $a0, 5      # Inteiro a ser impresso
+syscall        # Chama o serviço
+```
+
+**Em C (aproximado):**
+
+```c
+printf("%d", 5);
+```
+
+---
+
+### 21. `sll` (Shift Left Logical)
+
+Realiza um deslocamento lógico à esquerda de um valor em um registrador, preenchendo com zeros à direita.
+
+**Sintaxe:**
+
+```assembly
+sll $dest, $src, shift_amount
+```
+
+**Exemplo:**
+
+```assembly
+sll $t0, $t1, 2  # $t0 = $t1 << 2
+```
+
+**Em C:**
+
+```c
+t0 = t1 << 2;
+```
+
+---
+
+### 22. `bltz` (Branch on Less Than Zero)
+
+Desvia para uma etiqueta se o valor do registrador for menor que zero.
+
+**Sintaxe:**
+
+```assembly
+bltz $src, label
+```
+
+**Exemplo:**
+
+```assembly
+bltz $t0, negative_case  # Se $t0 < 0, vai para 'negative_case'
+```
+
+**Em C:**
+
+```c
+if (t0 < 0) {
+    goto negative_case;
+}
+```
+
+---
+
+### 23. `bgez` (Branch on Greater Than or Equal to Zero)
+
+Desvia para uma etiqueta se o valor do registrador for maior ou igual a zero.
+
+**Sintaxe:**
+
+```assembly
+bgez $src, label
+```
+
+**Exemplo:**
+
+```assembly
+bgez $t0, non_negative_case  # Se $t0 >= 0, vai para 'non_negative_case'
+```
+
+**Em C:**
+
+```c
+if (t0 >= 0) {
+    goto non_negative_case;
+}
+```
+
+---
+
+### 24. `addi` (Add Immediate)
+
+Adiciona um valor imediato (constante) a um registrador e armazena o resultado no registrador destino, **tratando números com sinal**. Um possível **overflow pode ocorrer** se o resultado exceder o intervalo de números com sinal (-2³¹ a 2³¹-1).
+
+**Sintaxe:**
+
+```assembly
+addi $dest, $src, immediate
+```
+
+**Exemplo:**
+
+```assembly
+addi $t0, $t1, 5  # $t0 = $t1 + 5 (com sinal, possível overflow)
+```
+
+**Em C:**
+
+```c
+t0 = t1 + 5;
+```
+
+---
+
+### 25. `addiu` (Add Immediate Unsigned)
+
+Adiciona um valor imediato a um registrador e armazena o resultado no registrador destino, **tratando números sem sinal**. O **overflow é ignorado**, ou seja, se o resultado ultrapassar o intervalo de 32 bits, ele "dá a volta" sem causar erro.
+
+**Sintaxe:**
+
+```assembly
+addiu $dest, $src, immediate
+```
+
+**Exemplo:**
+
+```assembly
+addiu $t0, $t1, 5  # $t0 = $t1 + 5 (sem verificação de overflow)
+```
+
+**Em C:**
+
+```c
+t0 = t1 + 5;
+```
+
+---
+
+### 26. `subi` (Subtract Immediate)
+
+Subtrai um valor imediato de um registrador e armazena o resultado no registrador destino, **tratando números com sinal**. Um possível **overflow pode ocorrer**. No MIPS, essa instrução pode ser simulada usando `addi` com um valor negativo.
+
+**Exemplo usando `addi`:**
+
+```assembly
+addi $t0, $t1, -5  # $t0 = $t1 - 5 (com sinal, possível overflow)
+```
+
+**Em C:**
+
+```c
+t0 = t1 - 5;
+```
+
+---
+
+### 27. `subiu` (Subtract Immediate Unsigned)
+
+Subtrai um valor imediato de um registrador, **tratando números sem sinal**. O **overflow é ignorado**, ou seja, o resultado continua válido mesmo que ultrapasse o intervalo de 32 bits. Pode ser simulado usando `addiu` com um valor negativo.
+
+**Exemplo com `addiu`:**
+
+```assembly
+addiu $t0, $t1, -5  # $t0 = $t1 - 5 (sem verificação de overflow)
+```
+
+**Em C:**
+
+```c
+t0 = t1 - 5;
+```
+
+---
+
+Agora, a diferença entre as instruções `addi` e `addiu`, assim como `subi` e `subiu`, está mais explícita no resumo.
