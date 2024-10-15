@@ -78,7 +78,7 @@ LOOP:   slt $t2, $0, $t1
 DONE:
 ```
 
-```c fold resolucao_q2_b.c
+```c
 int A; //$s1
 int B; //$s2
 int i; //$t1
