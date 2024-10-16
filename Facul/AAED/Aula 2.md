@@ -4,7 +4,6 @@
 
 # Algoritmo "max"
 
-
 ## Solução Iterativa
 
 Nesta abordagem, percorremos o vetor utilizando um laço de repetição (loop) e comparamos os elementos um a um. O maior valor é mantido em uma variável que é atualizada sempre que encontramos um valor maior no vetor. Ao final do loop, essa variável conterá o maior valor do vetor.

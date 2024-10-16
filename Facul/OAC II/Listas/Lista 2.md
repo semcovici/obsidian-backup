@@ -96,7 +96,9 @@ and $1, $1, $4 #i5
 
 Em `i2` é feita uma adição sobre um o registrador $1, que possui o seu valor atualizado em `i1`. Pelo valor de $1 ser atribuído por uma leitura na memória de dados, mesmo que haja forwarding, precisaria da adição de uma bolha. 
 
-O outro conflito seria entre `i5` e `i3`, que é solucionado com o fowarding.
+Existe também um conflito entre `i4` e `i2`.
+
+O outro conflito seria entre `i5` e `i3`, que é solucionado com o forwarding.
 
 
 
@@ -108,6 +110,7 @@ nop
 nop
 add $2, $3, $1 #i2
 add $1, $6, $4 #i3
+nop
 sw $2, 20($4) #i4
 nop
 and $1, $1, $4 #i5

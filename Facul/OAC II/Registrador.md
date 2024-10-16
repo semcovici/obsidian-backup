@@ -1,10 +1,8 @@
 $fp
 $sp
+
 $0
 $v0
-
-
-
 ## O que é?
 
 Um registrador é uma pequena área de armazenamento de dados dentro da unidade central de processamento (CPU) de um computador. Ele é usado para armazenar temporariamente dados que estão sendo processados, como valores de variáveis, endereços de memória, resultados intermediários de cálculos, ou instruções.
