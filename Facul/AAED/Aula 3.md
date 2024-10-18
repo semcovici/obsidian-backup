@@ -1,6 +1,6 @@
 
 
-![[../../../Aula3_SIN5013_2024.pdf]]
+![[Aula3_SIN5013_2024.pdf]]
 
 
 ## Definição
