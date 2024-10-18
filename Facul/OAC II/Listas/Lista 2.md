@@ -20,15 +20,15 @@ root:
 ```
 
 
-|                      | 1   | 2   | 3   | 4                  | 5                               | 6   | 7                | 8                  | 9                     | 10  | 11  | 12  |
-| -------------------- | --- | --- | --- | ------------------ | ------------------------------- | --- | ---------------- | ------------------ | --------------------- | --- | --- | --- |
-| addi $t4, $zero, 2   | BI  | DI  | EX  | MEM                | WB                              |     |                  |                    |                       |     |     |     |
-| add $t1, $t2, $t3    |     | BI  | DI  | EX (Foward t1 -> ) | MEM                             | WB  |                  |                    |                       |     |     |     |
-| lw $t3, 0x100(\$t1)  |     |     | BI  | DI                 | (<-Foward t1) EX (Foward t1 ->) | MEM | WB               |                    |                       |     |     |     |
-| sw \$t3, 0x200(\$t1) |     |     |     | X                  | BI                              | DI  | (<-Foward t1 )EX | MEM (Foward t3 ->) | WB                    |     |     |     |
-| subi $t4, $t4, 2     |     |     |     |                    |                                 | BI  | DI               | EX (Foward t4 ->)  | MEM                   | WB  |     |     |
-| beq $t4, $t3, root   |     |     |     |                    |                                 |     | BI               | DI                 | (<-Foward t3 e t4 )EX | MEM | WB  |     |
-| addi $t3, $t3, 0x100 |     |     |     |                    |                                 |     |                  | BI                 | DI                    | EX  | MEM | WB  |
+|                      | 1   | 2   | 3   | 4                  | 5                               | 6   | 7                | 8                                | 9                     | 10  | 11  | 12  |
+| -------------------- | --- | --- | --- | ------------------ | ------------------------------- | --- | ---------------- | -------------------------------- | --------------------- | --- | --- | --- |
+| addi $t4, $zero, 2   | BI  | DI  | EX  | MEM                | WB                              |     |                  |                                  |                       |     |     |     |
+| add $t1, $t2, $t3    |     | BI  | DI  | EX (Foward t1 -> ) | MEM                             | WB  |                  |                                  |                       |     |     |     |
+| lw $t3, 0x100(\$t1)  |     |     | BI  | DI                 | (<-Foward t1) EX(Foward t3 -> ) | MEM | WB               |                                  |                       |     |     |     |
+| sw \$t3, 0x200(\$t1) |     |     |     | X                  | BI                              | DI  | (<-Foward t1 )EX | (<-Foward t3) MEM (Foward t3 ->) | WB                    |     |     |     |
+| subi $t4, $t4, 2     |     |     |     |                    |                                 | BI  | DI               | EX (Foward t4 ->)                | MEM                   | WB  |     |     |
+| beq $t4, $t3, root   |     |     |     |                    |                                 |     | BI               | DI                               | (<-Foward t3 e t4 )EX | MEM | WB  |     |
+| addi $t3, $t3, 0x100 |     |     |     |                    |                                 |     |                  | BI                               | DI                    | EX  | MEM | WB  |
 
 
 ### B
@@ -191,13 +191,13 @@ sw r3, 0(r5)
 ### C
 ![[Pasted image 20241006171615.png]]
 
-|                | 1   | 2   | 3              | 4            | 5               | 6            | 7   | 8   | 9   |
-| -------------- | --- | --- | -------------- | ------------ | --------------- | ------------ | --- | --- | --- |
-| add r5, r2, r1 | BI  | DI  | EX (Foward ->) | MEM          | WB <br><br>     |              |     |     |     |
-| lw r3, 4(r5)   |     | BI  | DI             | (<-Foward)EX | MEM (Foward ->) | WB           |     |     |     |
-| lw r2, 0(r2)   |     |     | BI             | DI           | EX              | MEM          | WB  |     |     |
-| or r3, r5, r3  |     |     |                | BI           | DI              | (<-Foward)EX | MEM | WB  |     |
-| sw r3, 0(r5)   |     |     |                |              | BI              | DI           | EX  | MEM | WB  |
+|                | 1   | 2   | 3              | 4            | 5               | 6                      | 7            | 8   | 9   |
+| -------------- | --- | --- | -------------- | ------------ | --------------- | ---------------------- | ------------ | --- | --- |
+| add r5, r2, r1 | BI  | DI  | EX (Foward ->) | MEM          | WB <br><br>     |                        |              |     |     |
+| lw r3, 4(r5)   |     | BI  | DI             | (<-Foward)EX | MEM (Foward ->) | WB                     |              |     |     |
+| lw r2, 0(r2)   |     |     | BI             | DI           | EX              | MEM                    | WB           |     |     |
+| or r3, r5, r3  |     |     |                | BI           | DI              | (<-Foward)EX(Foward->) | MEM          | WB  |     |
+| sw r3, 0(r5)   |     |     |                |              | BI              | DI                     | (<-Foward)EX | MEM | WB  |
 
 Ou seja, não há problema. Sempre o forwarding resolve o problema que poderia dar.
 
