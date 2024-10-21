@@ -1,32 +1,7 @@
 ![[Lista1_2024.pdf]]
 ## Questão 1
+
 ![[Pasted image 20240930195539.png]]
-```python fold title:analysis_q1.asm
-addi $t1, $0, $0 # adiciona 0 + 0 e armazena em armazena em $t1, ou seja, atribui 0 a $t1
-LOOP: lw, $s1, 0($s0) # carrega o valor no endereço em $s0 
-add $s2, $s2, $s1 # adiciona o valor em $s1 em $s2
-addi $s0, $s0, 4 # adiciona 4 no endereço armazenado em $s0, ou seja, pula para o endereço do próximo elemento do array de inteiros, já que inteiros ocupam 32 bits = 4 bytes
-addi $t1, $t1, 1 # adiciona 1 em $t1
-slti $t2, $t1, 100 # verifica se o valor em $t1 é menor que 100. Caso seja, armazena 1 em $t2, caso contrário $t2 terá 0.
-bne $t2, $s0, LOOP # verifica se $t2 não tem o mesmo valor de $s0, que é 0. Caso não seja igual (branch not equal), volta para LOOP
-```
-
-```c fold title:resposta_q1.c
-// declaracao de variaveis
-int i; // $t1
-int result; // $s2 
-int * MemArrray_ptr = MemArray; // $s0 - assumindo MemArray como inicializado
-
-i = 0// addi $t1, $0, $0
-
-while(i < 100){
-
-	int aux = *MemArray_ptr;// aux armazena o valor contido no endereco apontado por MemArray_ptr (ponteiros apontam para o tamanho inteiro do dado, entao ao incrementar passamos para o proximo inteiro na memoria, que, no caso de um array, é o proximo elemento do array)
-	MemArray_ptr ++; // move ponteiro do array para o proximo endereco
-	i ++;
-}
-```
-
 
 > [!NOTE] Palavra
 >Em termos simples, em computação, uma **palavra** é um grupo de bits que um computador processa como uma unidade. O tamanho de uma palavra varia dependendo do tipo de computador. A palavra geralmente tem o mesmo tamanho que o processador do computador pode manipular de uma vez só.
@@ -36,10 +11,34 @@ while(i < 100){
 > -  Se você tem um processador de **32 bits**, uma palavra tem **32 bits** (ou 4 bytes, já que 1 byte = 8 bits).
 > - Se o processador for de **64 bits**, então a palavra tem **64 bits**.
 
-
 > [!NOTE] registrador $0
 > O registrador $0 ou $zero sempre armazena a constante 0, o que pode ser bastante útil para algumas aplicações
 
+```python
+addi $t1, $0, $0 # adiciona 0 + 0 e armazena em armazena em $t1, ou seja, atribui 0 a $t1
+LOOP: lw, $s1, 0($s0) # carrega o valor no endereço em $s0 
+add $s2, $s2, $s1 # adiciona o valor em $s1 em $s2
+addi $s0, $s0, 4 # adiciona 4 no endereço armazenado em $s0, ou seja, pula para o endereço do próximo elemento do array de inteiros, já que inteiros ocupam 32 bits = 4 bytes
+addi $t1, $t1, 1 # adiciona 1 em $t1
+slti $t2, $t1, 100 # verifica se o valor em $t1 é menor que 100. Caso seja, armazena 1 em $t2, caso contrário $t2 terá 0.
+bne $t2, $s0, LOOP # verifica se $t2 não tem o mesmo valor de $s0, que é 0. Caso não seja igual (branch not equal), volta para LOOP
+```
+
+```c
+// declaracao de variaveis
+int i; // $t1
+int result; // $s2 
+int * MemArrray_ptr = MemArray; // $s0 - assumindo MemArray como inicializado
+
+i = 0// addi $t1, $0, $0
+
+// precisa usar do while, pois a condicao esta no final do loop
+do{
+	int aux = *MemArray_ptr;// aux armazena o valor contido no endereco apontado por MemArray_ptr (ponteiros apontam para o tamanho inteiro do dado, entao ao incrementar passamos para o proximo inteiro na memoria, que, no caso de um array, é o proximo elemento do array)
+	MemArray_ptr ++; // move ponteiro do array para o proximo endereco
+	i ++;
+} while(i<100);
+```
 
 
 ## Questão 2
@@ -47,7 +46,7 @@ while(i < 100){
 ![[Pasted image 20241002005206.png]]
 
 
-```
+```python
 LOOP:   slt $t2, $0, $t1 
         beq $t2, $0, DONE
         subi $t1, $t1, 1
@@ -59,17 +58,15 @@ DONE:
 ![[Pasted image 20241002005234.png]]
 Assumindo que $t1 e $s2 são possuem, inicialmente, o valor 0.
 
+Primeiramente, no comando `slt $t2, $0, $t1`, é setado o valor de `$t2` como $0$, já que `$t1` não possui um valor menor que `$0`, pois $0$ não é menor que $0$. 
 
+Após isso, em `beq $t2, $0, DONE`, como `$t2` possui o valor $0$, ou seja, o valor de `$t2` é igual ao valor de `$0` , há um branch para `DONE`.
 
-Primeiramente, no comando `slt $t2, $0, $t1`, é setado o valor de $t2 como 0, já que $t1 não possui um valor menor que $0, pois 0 não é menor que 0. 
-
-Após isso, em `beq $t2, $0, DONE`, como $t2 possui o valor 0, ou seja, o valor de $t2 é igual ao valor de $0 , o programa "pula" parar DONE.
-
-Como não há código após DONE, o programa finaliza.
+Como não há código após `DONE`, o programa finaliza.
 ### B
 ![[Pasted image 20241002005259.png]]
 
-```
+```python
 LOOP:   slt $t2, $0, $t1 
         beq $t2, $0, DONE
         subi $t1, $t1, 1
@@ -78,20 +75,21 @@ LOOP:   slt $t2, $0, $t1
 DONE:
 ```
 
-```c
+```c 
 int A; //$s1
 int B; //$s2
 int i; //$t1
 int temp; //$t2
 
 
-while(i < 0){
-	i --;
-	B += 2;
+//LOOP:   slt $t2, $0, $t1 
+//        beq $t2, $0, DONE
+while(i > 0){
+	i --; // subi $t1, $t1, 1
+	B +=2; // addi $s2, $s2, 2
 }
+
 ```
-
-
 ## Questão 3
 ![[Pasted image 20241002011529.png]]
 
@@ -106,9 +104,9 @@ a <- $s0
 b <- $s1
 i <- $t0
 j <- $t1
-\*vetor_d <- $s2
+\* vetor_d <- $s2
 
-``` assembly
+``` python
     li $t0, 0           # i = 0
 loop_i:
     bge $t0, $s0, end_i # Se i >= a, fim do loop externo
@@ -146,7 +144,7 @@ end_i:
 ![[Pasted image 20241004235036.png]]
 
 
-```assembly
+```python
 .text
 main:
     li $v0, 5 # armazena 5 em $v0 (indica que no syscall tem que esperar o input de um inteiro)
@@ -171,8 +169,7 @@ endif:
 
 O código pede 2 inputs do usuário, imprime o maior dentre os dois inputs e encerra o programa.
 
-
-```
+```python
 .text
     .globl main
 main:
@@ -210,9 +207,6 @@ Multiplica:
     mult $a0, $a1          # Multiplica $a0 e $a1
     mflo $v0               # Move o resultado da multiplicação para $v0
     jr $ra                 # Retorna à função chamadora
-
-
-
 ```
 
 Esse codigo faz um fatorial
@@ -220,8 +214,7 @@ Esse codigo faz um fatorial
 
 ![[Pasted image 20241006023717.png]]
 
-
-```
+```python
 .data VET: .word 23, -43, 55, -9, -7, 21, -76, 12, -45, -10 # Vetor com os valores TAM: .word 10 # Tamanho do vetor 
 
 .text .globl main
@@ -277,7 +270,7 @@ FIM:
 ## Questão 6
 ![[Pasted image 20241006023730.png]]
 
-```
+```python
 .data 
 	VET: .word 23, 43, 55, 9, 7, 21, 76, 12, 45, 10 # Vetor de inteiros 
 	TAM: .word 10 # Tamanho do vetor 
@@ -328,19 +321,14 @@ FIM:
 	# Finalizar o programa 
 	li $v0, 10 # Chamada de sistema para terminar o programa 
 	syscall
-	
-
-
-
 ```
-
-
-
-
 ## Questão 7
+
 ![[Pasted image 20241006023756.png]]
 
-```
+### Primeiro código
+
+```python
 Enquanto i < 100
     v[i+1] = v[i] + 1;
     se v[i+1] != 10
@@ -350,7 +338,7 @@ Enquanto i < 100
 fim enquanto
 ```
 
-```
+``` python
 # i <- $s0
 # endereço base de v <- $s1
 # a <- $s1
@@ -382,6 +370,9 @@ increment_a:
 FIM:
 ```
 
+### Segundo código
+
+Video explicando a recursão: [MIPS Tutorial 34 Recursive Factorial Program](https://www.youtube.com/watch?v=B6ky4Weahm4)
 
 ```c
 int fact(int n)
@@ -393,27 +384,49 @@ int fact(int n)
 }
 ```
 
-```
+
+``` python
+
+# funcao fact: recebe de entrada 1 inteiro, retorna o fatorial desse
 fact:
 
-	slti $t0, $a0, 1
-	beq $t0, $0, return_one
-
-	addi $a0, $a0, -1 # seta argumento de fact
-	jal fact # chama fact
-
-	addi $t1, $a0, 1 # t1 = n + 1
-	mul $t2, $t1, $v0 # ((n + 1) * fact(n - 1))
-
-	li $v0, $t2 # seta o retorno
-	jr $ra # retorna 
+# salva na pilha
+subi $sp, $sp, 8 # reserva espaco na pilha para o $ra e o $a0
+sw $ra, 0($sp) # armazena endereco de retorno
+sw $a0, 4($sp) # armazena a entrada
 
 
-return_one:
+# identificar se eh caso base (if) ou se nao eh (else)
+slti $t1, $a0, 1
+beq $t1, $0, notBaseCase
 
-	li $v0, 1 # seta o retorno
-	jr $ra # retorna 
+# caso base
+# reseta o ponteiro da pilha
+addi $sp, $sp, 8
+li $v0, 1 # seta retorno como 1
+j $ra # retorna ao endereco que chamou a funcao
+
+# caso nao base
+notBaseCase:
+
+subi $a0, $a0, 1 # n - 1
+
+jal fact # chama para a recursao fact(n-1)
+
+# pegar elementos da pilhas
+lw $ra, 0($sp) # pega o endereco de retorno da pilha
+lw $a0, 4($sp) # pega entrada da pilha
+
+# calcula retorno
+addi $t2, $a0, 1 # (n + 1)
+mult $v0, $v0, $t2 # (n + 1) * fact(n - 1)
+
+# sobe ponteiro da pilha
+addi $sp, $sp, 8 
+
+j $ra # retornar
 ```
+
 ##  Questão 8
 ![[Pasted image 20241004022009.png]]
 
