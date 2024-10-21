@@ -19,7 +19,6 @@ root:
 	addi $t3, $t3, 0x100
 ```
 
-
 |                      | 1   | 2   | 3   | 4                  | 5                               | 6   | 7                | 8                                | 9                     | 10  | 11  | 12  |
 | -------------------- | --- | --- | --- | ------------------ | ------------------------------- | --- | ---------------- | -------------------------------- | --------------------- | --- | --- | --- |
 | addi $t4, $zero, 2   | BI  | DI  | EX  | MEM                | WB                              |     |                  |                                  |                       |     |     |     |
@@ -99,9 +98,6 @@ Em `i2` é feita uma adição sobre um o registrador $1, que possui o seu valor 
 Existe também um conflito entre `i4` e `i2`.
 
 O outro conflito seria entre `i5` e `i3`, que é solucionado com o forwarding.
-
-
-
 ### B
 ![[Pasted image 20241006171434.png]]
 ```
@@ -177,17 +173,22 @@ sw r3, 0(r5)
 
 ### B
 ![[Pasted image 20241006171607.png]]
-```
+Original: 
+```python
 add r5, r2, r1
 nop
 nop
-lw r7, 4(r5) # usar r7 como registrador intermediario
+lw r3, 4(r5)
 lw r2, 0(r2)
-or r3, r5, r7 # usar r7 como registrador intermediario
+nop
+or r3, r5, r3
 nop
 nop
 sw r3, 0(r5)
+
 ```
+
+Não há como rearranjar de forma que diminua o número de nops.
 ### C
 ![[Pasted image 20241006171615.png]]
 
