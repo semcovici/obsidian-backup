@@ -1,6 +1,6 @@
 
 
-![[Aula3_SIN5013_2024.pdf]]
+![[files/Aula3_SIN5013_2024 1.pdf]]
 
 
 ## Definição

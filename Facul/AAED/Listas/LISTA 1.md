@@ -1,5 +1,5 @@
 
-![[../../../../SIN5013_lista1.pdf]]
+![[../files/SIN5013_lista1.pdf]]
 
 ## Resolução 
 
