@@ -201,9 +201,12 @@ Não há como rearranjar de forma que diminua o número de nops.
 | sw r3, 0(r5)   |     |     |                |              | BI              | DI                     | (<-Foward)EX | MEM | WB  |
 
 Ou seja, não há problema. Sempre o forwarding resolve o problema que poderia dar.
-
-
 ### D
+
+
+add r4, r3, r1
+sw r4, 0(r4)
+
 ![[Pasted image 20241011225247.png]]
 Baseado na tabela gerada na pergunta anterior:
 No ciclo 3, há um forward de EX/MEM para EX. 
@@ -211,6 +214,8 @@ No ciclo 3, há um forward de EX/MEM para EX.
 No ciclo 4, recebe-se o forward de EX/MEM para EX gerado no ciclo 3.
 
 No ciclo 4, há um forward de MEM/WB para EX
+#### Gabarito
+![[Pasted image 20241024181544.png]]
 ### E
 ![[Pasted image 20241006171630.png]]
 
